@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:00:45 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 17:34:54 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:24:17 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_array(char **array)
 {
 	int	i;
-	
+
 	i = 0;
 	while (array[i])
 	{

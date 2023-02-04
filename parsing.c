@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:42:27 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 18:26:42 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:40:30 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ int	has_doubles(t_holder *holder)
 		while (compare)
 		{
 			if (temp->number == compare->number)
-			{
-				ft_printf("%i, %i", temp->number, compare->number);
 				return (1);
-			}
-				
 			compare = compare->next;
 		}
 		temp = temp->next;
@@ -55,18 +51,11 @@ int	is_valid(char *str)
 int	put_stack(char **numbers, t_holder *holder)
 {
 	int	i;
-	// char **zahl;
 
-	// zahl = ft_split(numbers, ' ');
 	i = 1;
 	while (numbers[i])
-	{
 		if (!is_valid(numbers[i++]))
-		{
-			// free_array(numbers);
 			return (0);
-		}
-	}
 	holder->size = i - 1;
 	i--;
 	while (i >= 1)
@@ -76,20 +65,5 @@ int	put_stack(char **numbers, t_holder *holder)
 		free_holder(holder);
 		return (0);
 	}
-	// free_array(numbers);
 	return (1);
 }
-
-// int main(void)
-// {
-// 	t_holder *hi;
-	
-// 	hi = malloc(sizeof(t_holder *) + sizeof(t_stack *) * 2);
-// 	hi->a = NULL;
-// 	hi->b = NULL;
-// 	hi->size = 0;
-// 	if (put_stack("1 2 5 3 6 9 7 -5 -1 5", hi))
-// 		ft_printf("%i\n", has_doubles(hi));
-// 	printlist(hi->a);
-// 	return (0);
-// }

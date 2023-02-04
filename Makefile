@@ -13,7 +13,7 @@ OBJ = $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	@cc $(SRC) $(LIBFT) $(FLAGS) -o $(NAME)
+	@cc $(SRC) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	@make -C ./libft

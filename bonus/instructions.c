@@ -6,11 +6,11 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:32:18 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 14:02:41 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:38:45 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	check(char *inst, t_stack **a, t_stack **b)
 {

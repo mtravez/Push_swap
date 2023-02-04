@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:42:59 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 18:13:54 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:36:02 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	rb(t_holder *holder)
 	rotate(&holder->b);
 	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("rb\n")));
 }
-

@@ -6,15 +6,15 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:35:57 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 17:29:38 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:45:17 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*newCell(int number, int index)
+t_stack	*new_cell(int number, int index)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack *) * 2);
 	if (!stack)
@@ -27,9 +27,9 @@ t_stack	*newCell(int number, int index)
 
 void	push(int number, int index, t_stack **stack)
 {
-	t_stack *head;
+	t_stack	*head;
 
-	head = newCell(number, index);
+	head = new_cell(number, index);
 	head->next = *stack;
 	*stack = head;
 }
@@ -45,9 +45,9 @@ void	pop(t_stack **stack)
 
 int	stack_size(t_stack *stack)
 {
-	t_stack *current;
+	t_stack	*current;
 	int		i;
-	
+
 	current = stack;
 	i = 0;
 	while (current)
@@ -60,7 +60,7 @@ int	stack_size(t_stack *stack)
 
 void	put_last(t_stack *to_last, t_stack **stack)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	current = *stack;
 	while (current->next)

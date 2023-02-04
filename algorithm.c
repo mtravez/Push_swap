@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:36:25 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 18:30:29 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:23:54 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ void	efficient(t_holder *holder)
 {
 	t_list	*current;
 	t_list	*next;
-	
+
 	current = holder->instructions;
-	
 	while (current)
 	{
 		next = current->next;
@@ -67,18 +66,13 @@ void	sort(t_holder *holder)
 	int	i;
 	int	j;
 	int	index;
-	
+
 	i = 0;
 	while (i <= holder->n)
 	{
 		j = 0;
 		while (j < holder->size)
 		{
-			// ft_printf("A: ");
-			// printlist(holder->a);
-			// ft_printf("B: ");
-			// printlist(holder->b);
-			// ft_printf("\n");
 			index = holder->a->index;
 			if (((index << (holder->n - i)) >> (holder->n - 1)) & 1)
 				ra(holder);

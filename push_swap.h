@@ -6,14 +6,17 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:56:41 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 17:55:26 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:44:19 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
@@ -31,7 +34,7 @@ typedef struct s_holder
 	int		size;
 }	t_holder;
 
-t_stack	*newCell(int number, int index);
+t_stack	*new_cell(int number, int index);
 void	push(int number, int index, t_stack **stack);
 void	pop(t_stack **stack);
 int		stack_size(t_stack *stack);
@@ -62,3 +65,5 @@ void	pa(t_holder *holder);
 void	pb(t_holder *holder);
 void	ra(t_holder *holder);
 void	rb(t_holder *holder);
+
+#endif

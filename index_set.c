@@ -6,32 +6,19 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:34:37 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 16:52:56 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:38:01 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	draw_array(int *array, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		ft_putnbr(array[i]);
-		ft_putchar(' ');
-		i++;
-	}
-	ft_putchar('\n');
-}
-
 int	*copy_a_array(t_holder *holder)
 {
-	int	*copy;
-	t_stack *temp;
-	int i = 0;
-	
+	int		*copy;
+	t_stack	*temp;
+	int		i;
+
+	i = 0;
 	copy = malloc(sizeof(int) * holder->size);
 	temp = holder->a;
 	while (temp)
@@ -105,20 +92,9 @@ int	*sorted_array(int *copy, int size)
 void	put_index(t_holder *holder)
 {
 	int	*array;
-	
+
 	array = copy_a_array(holder);
 	sorted_array(array, holder->size);
-	// draw_array(array, holder->size);
 	put_index_array(array, holder);
 	free(array);
 }
-
-
-// int main()
-// {
-// 	int hi[] = {5, 8, 6, 3, 9, 7, 2, 1, 4, 0, -2, -8, -5, -1, -3, -9, -7, -6, -4};
-// 	draw_array(hi, 19);
-// 	sorted_array(hi, 19);
-// 	ft_printf("\n");
-// 	draw_array(hi, 19);
-// }
