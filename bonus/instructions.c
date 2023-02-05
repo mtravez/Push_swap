@@ -6,74 +6,38 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:32:18 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 20:38:45 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:26:43 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
-int	check(char *inst, t_stack **a, t_stack **b)
+int	check(char *inst, t_holder *holder)
 {
 	if (ft_strncmp(inst, "sa", 2) == 0)
-		swap(a);
+		swap(&holder->a);
 	else if (ft_strncmp(inst, "sb", 2) == 0)
-		swap(b);
+		swap(&holder->b);
 	else if (ft_strncmp(inst, "ss", 2) == 0)
-	{
-		swap(a);
-		swap(b);
-	}  
+		ss(holder);
 	else if (ft_strncmp(inst, "pa", 2) == 0)
-		push_stack(b, a);
+		push_stack(&holder->b, &holder->a);
 	else if (ft_strncmp(inst, "pb", 2) == 0)
-		push_stack(a, b);
+		push_stack(&holder->a, &holder->b);
 	else if (ft_strncmp(inst, "ra", 2) == 0)
-		rotate(a);
+		rotate(&holder->a);
 	else if (ft_strncmp(inst, "rb", 2) == 0)
-		rotate(b);
+		rotate(&holder->b);
 	else if (ft_strncmp(inst, "rr", 2) == 0)
-	{
-		rotate(a);
-		rotate(b);
-	}
+		rr(holder);
 	else if (ft_strncmp(inst, "rra", 3) == 0)
-		reverse_rotate(a);
+		reverse_rotate(&holder->a);
 	else if (ft_strncmp(inst, "rrb", 3) == 0)
-		reverse_rotate(b);
+		reverse_rotate(&holder->b);
 	else if (ft_strncmp(inst, "rrr", 3) == 0)
-	{
-		reverse_rotate(a);
-		reverse_rotate(b);
-	}
+		rrr(holder);
 	else
 		return (0);
 	return (1);
 }
 
-int	checker(char **instructions, t_stack **a, t_stack **b)
-{
-	int	i;
-
-	i = 0;
-	while (instructions[i])
-		if (!check(instructions[i++], a, b))
-			return (0);
-	if (!read_stack(*a));
-}
-
-int	is_sorted(t_stack *stack)
-{
-	t_stack *current;
-	int	prev;
-	
-	current = stack;
-	prev = current->number;
-	while (current->next)
-	{
-		current = current->next;
-		if (prev >= current->number)
-			return (0);
-		prev = current->number;
-	}
-	return (1);
-}

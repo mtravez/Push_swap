@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:42:59 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 20:36:02 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/05 18:08:10 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,32 @@ void	rb(t_holder *holder)
 {
 	rotate(&holder->b);
 	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("rb\n")));
+}
+
+t_holder	*init_holder(char **numbers)
+{
+	t_holder	*newh;
+	int			bits;
+	int			max;
+
+	newh = malloc(sizeof(t_holder *) + sizeof(t_stack) \
+	* 2 + sizeof(t_list *) * 2);
+	newh->a = NULL;
+	newh->b = NULL;
+	if (!put_stack(numbers, newh))
+	{
+		free_holder(newh);
+		return (NULL);
+	}
+	max = newh->size;
+	bits = 0;
+	while (max)
+	{
+		max >>= 1;
+		bits++;
+	}
+	newh->n = bits;
+	newh->instructions = NULL;
+	put_index(newh);
+	return (newh);
 }

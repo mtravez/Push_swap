@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 20:55:54 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/05 18:09:38 by mtravez          ###   ########.fr       */
+/*   Created: 2023/02/05 13:27:04 by mtravez           #+#    #+#             */
+/*   Updated: 2023/02/05 16:21:36 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	print_instructions(t_list *list)
-{
-	t_list	*temp;
-
-	temp = list;
-	while (temp)
-	{
-		ft_printf("%s", ((char *)(temp->content)));
-		temp = temp->next;
-	}
-}
+#include "checker.h"
 
 int	main(int argc, char **argv)
 {
 	t_holder	*holder;
+	char		*line;
 
 	if (argc < 2)
 	{
@@ -39,13 +28,21 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (0);
 	}
-	if (holder->size == 1 || is_sorted(holder->a))
+	line = get_next_line(1);
+	while (line)
 	{
-		free_holder(holder);
-		return (0);
+		if (!check(line, holder))
+		{
+			ft_printf("Error\n");
+			free_holder(holder);
+			return (0);
+		}
+		line = get_next_line(1);
 	}
-	sort(holder);
-	print_instructions(holder->instructions);
+	if (is_sorted(holder->a))
+		ft_printf("OK");
+	else
+		ft_printf("KO");
 	free_holder(holder);
 	// system("leaks push_swap");
 }

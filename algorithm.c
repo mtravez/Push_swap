@@ -6,11 +6,24 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:36:25 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 20:23:54 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:40:34 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	printlist(t_stack *list)
+{
+	t_stack	*temp;
+
+	temp = list;
+	while (temp)
+	{
+		ft_printf("[%i, %i] -> ", temp->number, temp->index);
+		temp = temp->next;
+	}
+	ft_printf("\n");
+}
 
 void	remove_cell(t_list **head, t_list *to_remove)
 {
@@ -57,7 +70,8 @@ void	efficient(t_holder *holder)
 			remove_cell(&holder->instructions, next);
 			current = holder->instructions;
 		}
-		current = current->next;
+		else
+			current = current->next;
 	}
 }
 
@@ -74,10 +88,12 @@ void	sort(t_holder *holder)
 		while (j < holder->size)
 		{
 			index = holder->a->index;
-			if (((index << (holder->n - i)) >> (holder->n - 1)) & 1)
+			if ((index >> i) & 1)
 				ra(holder);
 			else
 				pb(holder);
+			if (is_sorted(holder->a) && !holder->b)
+				return ;
 			j++;
 		}
 		while (holder->b)
@@ -86,3 +102,8 @@ void	sort(t_holder *holder)
 	}
 	efficient(holder);
 }
+
+// void	sort_short(t_holder *holder)
+// {
+	
+// }
