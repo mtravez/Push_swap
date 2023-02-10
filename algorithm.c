@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:36:25 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/05 17:40:34 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:46:20 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ void	printlist(t_stack *list)
 		temp = temp->next;
 	}
 	ft_printf("\n");
+}
+
+t_stack	*get_last_stack(t_stack *head)
+{
+	if (!head)
+		return (head);
+	while (head->next)
+		head = head->next;
+	return (head);
 }
 
 void	remove_cell(t_list **head, t_list *to_remove)
@@ -92,7 +101,7 @@ void	sort(t_holder *holder)
 				ra(holder);
 			else
 				pb(holder);
-			if (is_sorted(holder->a) && !holder->b)
+			if (is_sorted(holder))
 				return ;
 			j++;
 		}
@@ -103,7 +112,31 @@ void	sort(t_holder *holder)
 	efficient(holder);
 }
 
-// void	sort_short(t_holder *holder)
-// {
+void	sort_short(t_holder *holder)
+{
+	int	i;
+	int	j;
 	
-// }
+	i = 0;
+	j = 0;
+	while (i < holder->size)
+	{
+		j = 0;
+		while (j < holder->size - i - 1)
+		{
+			if (holder->a->index > get_last_stack(holder->a)->index)
+				rra(holder);
+			else if (holder->a->index > holder->a->next->index)
+			{
+				sa(holder);
+				ra(holder);
+			}
+			else
+				ra(holder);
+			if (is_sorted(holder))
+				return ;
+			j++;
+		}
+		i++;
+	}
+}

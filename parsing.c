@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:42:27 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 20:40:30 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:02:28 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,14 @@ int	put_stack(char **numbers, t_holder *holder)
 	holder->size = i - 1;
 	i--;
 	while (i >= 1)
-		push(ft_atoi(numbers[i--]), 0, &holder->a);
-	if (has_doubles(holder))
 	{
-		free_holder(holder);
-		return (0);
+		push(ft_atoi(numbers[i]), 0, &holder->a);
+		if ((holder->a->number < 0 && numbers[i][0] != '-') || \
+		(holder->a->number > 0 && numbers[i][0] == '-'))
+			return (0);
+		i--;
 	}
+	if (has_doubles(holder))
+		return (0);
 	return (1);
 }

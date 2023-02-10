@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = ps.c push_swap.c stack_functions.c free_stuff.c index_set.c parsing.c algorithm.c holder_functions.c
+SRC = ps.c push_swap.c stack_functions.c free_stuff.c index_set.c parsing.c algorithm.c holder_functions.c swap_functions.c
 
 BONUS = checker
 
@@ -8,7 +8,7 @@ BONUS_SRC = bonus/instructions.c bonus/checker.c bonus/double_function.c
 
 LIBFT = libft/libft.a
 
-FLAGS=-Wall -Wextra -Werror -fsanitize=address
+FLAGS=-Wall -Wextra -Werror
 
 TEST = test.c
 
@@ -39,6 +39,6 @@ re: fclean all
 bonus: $(BONUS)
 
 $(BONUS): $(LIBFT) $(OBJ_BONUS)
-	cc $(BONUS_SRC) $(LIBFT) ps.c stack_functions.c parsing.c free_stuff.c holder_functions.c index_set.c -o $(BONUS)
+	cc $(BONUS_SRC) $(LIBFT) $(FLAGS) ps.c stack_functions.c parsing.c free_stuff.c holder_functions.c index_set.c -o $(BONUS)
 
 .PHONY: all clean fclean re

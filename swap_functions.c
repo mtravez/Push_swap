@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_function.c                                  :+:      :+:    :+:   */
+/*   swap_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 14:00:22 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/09 20:31:32 by mtravez          ###   ########.fr       */
+/*   Created: 2023/02/10 12:40:50 by mtravez           #+#    #+#             */
+/*   Updated: 2023/02/10 15:12:32 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
-void	ss(t_holder *holder)
+void	sa(t_holder *holder)
 {
 	swap(&holder->a);
-	swap(&holder->b);
+	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("sa\n")));
 }
 
-void	rr(t_holder *holder)
+void	sb(t_holder *holder)
 {
-	rotate(&holder->a);
-	rotate(&holder->b);
+	swap(&holder->b);
+	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("sb\n")));
 }
 
-void	rrr(t_holder *holder)
+void	rra(t_holder *holder)
 {
 	reverse_rotate(&holder->a);
+	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("rra\n")));
+}
+
+void	rrb(t_holder *holder)
+{
 	reverse_rotate(&holder->b);
+	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("rrb\n")));
 }

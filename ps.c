@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:04:23 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/05 17:42:06 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/09 20:18:17 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ void	rotate(t_stack **stack)
 {
 	t_stack	*second;
 
+	if (!(*stack) || !(*stack)->next)
+		return ;
 	second = (*stack)->next;
-	if (second)
-	{
-		put_last(*stack, stack);
-		*stack = second;
-	}
+	put_last(*stack, stack);
+	*stack = second;
 }
 
 void	reverse_rotate(t_stack **stack)
@@ -52,6 +51,8 @@ void	reverse_rotate(t_stack **stack)
 	t_stack	*prev;
 
 	current = *stack;
+	if (!current)
+		return ;
 	while (current->next)
 	{
 		prev = current;
@@ -59,15 +60,18 @@ void	reverse_rotate(t_stack **stack)
 	}
 	current->next = *stack;
 	*stack = current;
-	prev->next = NULL;
+	if (prev)
+		prev->next = NULL;
 }
 
-int	is_sorted(t_stack *stack)
+int	is_sorted(t_holder *holder)
 {
 	t_stack	*current;
 	int		index;
 
-	current = stack;
+	if (holder->b)
+		return (0);
+	current = holder->a;
 	index = 0;
 	if (!current)
 		return (0);

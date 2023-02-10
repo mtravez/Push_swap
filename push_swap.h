@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:56:41 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/05 16:27:12 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:12:58 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		push_stack(t_stack **from, t_stack **to);
 void		rotate(t_stack **stack);
 void		reverse_rotate(t_stack **stack);
 int			checker(char **instructions, t_stack **a, t_stack **b);
-int			is_sorted(t_stack *stack);
+int			is_sorted(t_holder *holder);
 
 void		swap(t_stack **stack);
 void		push_stack(t_stack **from, t_stack **to);
@@ -60,11 +60,18 @@ void		free_array(char **array);
 void		free_list(t_list *head);
 
 void		sort(t_holder *holder);
+void		sort_short(t_holder *holder);
 void		pa(t_holder *holder);
 void		pb(t_holder *holder);
 void		ra(t_holder *holder);
 void		rb(t_holder *holder);
+void		sa(t_holder *holder);
+void		sb(t_holder *holder);
+void		rra(t_holder *holder);
+void		rrb(t_holder *holder);
 t_holder	*init_holder(char **numbers);
-int			is_sorted(t_stack *stack);
+
+void	printlist(t_stack *list);
+
 
 #endif
