@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:32:18 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/09 20:31:20 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 13:33:39 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 int	check(char *inst, t_holder *holder)
 {
-	if (ft_strncmp(inst, "sa", 2) == 0)
+	if (ft_strncmp(inst, "sa\n", 3) == 0)
 		swap(&holder->a);
-	else if (ft_strncmp(inst, "sb", 2) == 0)
+	else if (ft_strncmp(inst, "sb\n", 3) == 0)
 		swap(&holder->b);
-	else if (ft_strncmp(inst, "ss", 2) == 0)
+	else if (ft_strncmp(inst, "ss\n", 3) == 0)
 		ss(holder);
-	else if (ft_strncmp(inst, "pa", 2) == 0)
+	else if (ft_strncmp(inst, "pa\n", 3) == 0)
 		push_stack(&holder->b, &holder->a);
-	else if (ft_strncmp(inst, "pb", 2) == 0)
+	else if (ft_strncmp(inst, "pb\n", 3) == 0)
 		push_stack(&holder->a, &holder->b);
-	else if (ft_strncmp(inst, "ra", 2) == 0)
+	else if (ft_strncmp(inst, "ra\n", 3) == 0)
 		rotate(&holder->a);
-	else if (ft_strncmp(inst, "rb", 2) == 0)
+	else if (ft_strncmp(inst, "rb\n", 3) == 0)
 		rotate(&holder->b);
-	else if (ft_strncmp(inst, "rra", 3) == 0)
-		reverse_rotate(&holder->a);
-	else if (ft_strncmp(inst, "rrb", 3) == 0)
-		reverse_rotate(&holder->b);
-	else if (ft_strncmp(inst, "rrr", 3) == 0)
-		rrr(holder);
-	else if (ft_strncmp(inst, "rr", 2) == 0)
+	else if (ft_strncmp(inst, "rr\n", 3) == 0)
 		rr(holder);
+	else if (ft_strncmp(inst, "rra\n", 4) == 0)
+		reverse_rotate(&holder->a);
+	else if (ft_strncmp(inst, "rrb\n", 4) == 0)
+		reverse_rotate(&holder->b);
+	else if (ft_strncmp(inst, "rrr\n", 4) == 0)
+		rrr(holder);
 	else
 		return (0);
 	return (1);

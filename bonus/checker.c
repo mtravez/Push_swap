@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:27:04 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/10 13:03:14 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:08:53 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ int	main(int argc, char **argv)
 	else
 		ft_printf("KO");
 	free_holder(holder);
-	// system("leaks checker");
 	return (0);
 }

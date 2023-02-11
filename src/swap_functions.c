@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:40:50 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/10 15:12:32 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:40:51 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,14 @@ void	rrb(t_holder *holder)
 {
 	reverse_rotate(&holder->b);
 	ft_lstadd_back(&holder->instructions, ft_lstnew(ft_strdup("rrb\n")));
+}
+
+int	get_half(int n)
+{
+	int	half;
+
+	half = n / 2;
+	if (n % 2 != 0)
+		half++;
+	return (half);
 }

@@ -1,6 +1,7 @@
 NAME = push_swap
 
-SRC = ps.c push_swap.c stack_functions.c free_stuff.c index_set.c parsing.c algorithm.c holder_functions.c swap_functions.c
+SRC = src/ps.c src/push_swap.c src/stack_functions.c src/free_stuff.c \
+	src/index_set.c src/parsing.c src/algorithm.c src/holder_functions.c src/swap_functions.c src/short_algo.c
 
 BONUS = checker
 
@@ -10,8 +11,6 @@ LIBFT = libft/libft.a
 
 FLAGS=-Wall -Wextra -Werror
 
-TEST = test.c
-
 OBJ = $(SRC:%.c=%.o)
 
 OBJ_BONUS = $(BONUS_SRC:%.c=%.o)
@@ -19,7 +18,7 @@ OBJ_BONUS = $(BONUS_SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	@cc $(SRC) $(LIBFT) -o $(NAME)
+	@cc $(SRC) $(LIBFT) $(FLAGS) -o $(NAME)
 
 $(LIBFT):
 	@make -C ./libft
@@ -39,6 +38,7 @@ re: fclean all
 bonus: $(BONUS)
 
 $(BONUS): $(LIBFT) $(OBJ_BONUS)
-	cc $(BONUS_SRC) $(LIBFT) $(FLAGS) ps.c stack_functions.c parsing.c free_stuff.c holder_functions.c index_set.c -o $(BONUS)
+	@cc $(BONUS_SRC) $(LIBFT) $(FLAGS) src/ps.c src/stack_functions.c src/parsing.c src/free_stuff.c \
+	src/holder_functions.c src/index_set.c -o $(BONUS)
 
 .PHONY: all clean fclean re

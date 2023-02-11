@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:42:59 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/05 18:08:10 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:15:48 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_holder	*init_holder(char **numbers)
 		max >>= 1;
 		bits++;
 	}
-	newh->n = bits;
+	newh->n = bits - 1;
 	newh->instructions = NULL;
 	put_index(newh);
 	return (newh);

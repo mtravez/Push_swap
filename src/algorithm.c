@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:36:25 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/10 15:46:20 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:33:46 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,36 +107,6 @@ void	sort(t_holder *holder)
 		}
 		while (holder->b)
 			pa(holder);
-		i++;
-	}
-	efficient(holder);
-}
-
-void	sort_short(t_holder *holder)
-{
-	int	i;
-	int	j;
-	
-	i = 0;
-	j = 0;
-	while (i < holder->size)
-	{
-		j = 0;
-		while (j < holder->size - i - 1)
-		{
-			if (holder->a->index > get_last_stack(holder->a)->index)
-				rra(holder);
-			else if (holder->a->index > holder->a->next->index)
-			{
-				sa(holder);
-				ra(holder);
-			}
-			else
-				ra(holder);
-			if (is_sorted(holder))
-				return ;
-			j++;
-		}
 		i++;
 	}
 }
