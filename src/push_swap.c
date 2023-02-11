@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 20:55:54 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:38:06 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:51:33 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ int	main(int argc, char **argv)
 	if (!holder)
 	{
 		ft_printf("Error\n");
-		system("leaks push_swap");
 		return (0);
 	}
-	if (holder->size == 1 || is_sorted(holder))
+	if (holder->size == 1 || is_sorted(holder->a))
 	{
 		free_holder(holder);
 		return (0);
 	}
-	if (holder->size > 5)
+	if (holder->size >= 50)
 		sort(holder);
 	else
 		sort_short(holder);

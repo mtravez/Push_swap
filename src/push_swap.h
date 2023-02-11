@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:56:41 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:37:38 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:40:55 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		swap(t_stack **stack);
 void		push_stack(t_stack **from, t_stack **to);
 void		rotate(t_stack **stack);
 void		reverse_rotate(t_stack **stack);
-int			is_sorted(t_holder *holder);
+int			is_sorted(t_stack *stack);
 int			get_half(int n);
 
 void		swap(t_stack **stack);

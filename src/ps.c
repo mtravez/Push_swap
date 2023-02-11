@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:04:23 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/09 20:18:17 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:42:13 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,15 @@ void	reverse_rotate(t_stack **stack)
 		prev->next = NULL;
 }
 
-int	is_sorted(t_holder *holder)
+int	is_sorted(t_stack *stack)
 {
 	t_stack	*current;
 	int		index;
 
-	if (holder->b)
-		return (0);
-	current = holder->a;
-	index = 0;
+	current = stack;
 	if (!current)
 		return (0);
+	index = current->index;
 	while (current->next)
 	{
 		if (index != current->index)

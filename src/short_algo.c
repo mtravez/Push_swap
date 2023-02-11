@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:11:21 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:59:07 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:40:33 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ void	nr_rot(t_holder *holder, int nbr)
 	int	i;
 
 	i = 0;
-	if (!nbr)
-		if (stack_size(holder->a) / 2 != get_half(stack_size(holder->a)))
-			nbr = stack_size(holder->a) / 2 * -1;
-	if (nbr < 0)
+	if (stack_size(holder->a) - nbr <= stack_size(holder->a) / 2)
 	{
-		nbr *= -1;
+		nbr = stack_size(holder->a) - nbr;
 		while (i < nbr)
 		{
 			rra(holder);
@@ -31,7 +28,6 @@ void	nr_rot(t_holder *holder, int nbr)
 	}
 	else
 	{
-		nbr = get_half(stack_size(holder->a)) - nbr;
 		while (i < nbr)
 		{
 			ra(holder);
@@ -64,9 +60,9 @@ void	three_sort(t_holder *holder)
 {
 	t_stack	**first_last;
 
-	first_last = get_first_last(holder);
-	if (first_last[0]->next && !first_last[1])
+	if (is_sorted(holder->a))
 		return ;
+	first_last = get_first_last(holder);
 	if (!first_last[1]->next || \
 	first_last[1]->next->index != first_last[0]->index)
 		sa(holder);
@@ -105,8 +101,7 @@ void	sort_short(t_holder *holder)
 	i = 0;
 	while (i < holder->size - 3)
 	{
-		nr_rot(holder, get_half(stack_size(holder->a)) \
-		- get_smallest_distance(holder));
+		nr_rot(holder, get_smallest_distance(holder));
 		pb(holder);
 		i++;
 	}

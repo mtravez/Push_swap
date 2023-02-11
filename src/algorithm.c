@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:36:25 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 18:33:46 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:39:58 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	sort(t_holder *holder)
 				ra(holder);
 			else
 				pb(holder);
-			if (is_sorted(holder))
+			if (is_sorted(holder->a) && !holder->b)
 				return ;
 			j++;
 		}
