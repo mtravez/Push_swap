@@ -6,25 +6,14 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:27:04 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 15:08:53 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 13:23:25 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	printlist(t_stack *list)
-{
-	t_stack	*temp;
-
-	temp = list;
-	while (temp)
-	{
-		ft_printf("[%i] -> ", temp->number);
-		temp = temp->next;
-	}
-	ft_printf("\n");
-}
-
+/*This function reads the commands in the command line for 
+instructions until a null terminator is given.*/
 int	read_commands(t_holder *holder)
 {
 	char	*line;

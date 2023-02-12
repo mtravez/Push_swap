@@ -6,12 +6,14 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:32:18 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 13:33:39 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 13:22:17 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
+/*This function checks if the instruction given is valid and executes
+it accordingly if so.*/
 int	check(char *inst, t_holder *holder)
 {
 	if (ft_strncmp(inst, "sa\n", 3) == 0)

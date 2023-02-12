@@ -6,25 +6,13 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:36:25 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 19:39:58 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 21:21:31 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printlist(t_stack *list)
-{
-	t_stack	*temp;
-
-	temp = list;
-	while (temp)
-	{
-		ft_printf("[%i, %i] -> ", temp->number, temp->index);
-		temp = temp->next;
-	}
-	ft_printf("\n");
-}
-
+/*This function returns the last cell in a stack*/
 t_stack	*get_last_stack(t_stack *head)
 {
 	if (!head)
@@ -34,6 +22,10 @@ t_stack	*get_last_stack(t_stack *head)
 	return (head);
 }
 
+/*This function removes a specific cell from the given list
+and frees the space
+@param head pointer to the head of thee list
+@param to_remove the list cell to be removed*/
 void	remove_cell(t_list **head, t_list *to_remove)
 {
 	t_list	*temp;
@@ -56,6 +48,7 @@ void	remove_cell(t_list **head, t_list *to_remove)
 	}
 }
 
+/*This function removes instructions that negate each other*/
 void	efficient(t_holder *holder)
 {
 	t_list	*current;
@@ -84,6 +77,11 @@ void	efficient(t_holder *holder)
 	}
 }
 
+/*This is the main algorithm that sorts a list. It is based on radix sort
+and utilizes binary numbers to be able to sort using only two buckets.
+For each bit, it will push every 0 to stack B, and leave each 1 in stack
+A by rotating it. When the reading of the current bit of every cell in
+the stack is done, all cells in stack B will be returned to stack A.*/
 void	sort(t_holder *holder)
 {
 	int	i;

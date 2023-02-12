@@ -6,12 +6,13 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:04:23 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 19:42:13 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 12:57:03 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*This function swaps the first and second elements in a stack*/
 void	swap(t_stack **stack)
 {
 	t_stack	*first;
@@ -26,6 +27,7 @@ void	swap(t_stack **stack)
 	(*stack)->next = first;
 }
 
+/*This function pushes the first element from one stack to another*/
 void	push_stack(t_stack **from, t_stack **to)
 {
 	if (!(*from))
@@ -34,6 +36,9 @@ void	push_stack(t_stack **from, t_stack **to)
 	pop(from);
 }
 
+/*This function moves the second element to the head of the stack and
+puts the first element as last. It won't do anything if the stack is
+empty or only has one element*/
 void	rotate(t_stack **stack)
 {
 	t_stack	*second;
@@ -45,6 +50,8 @@ void	rotate(t_stack **stack)
 	*stack = second;
 }
 
+/*This function will move the last element of a stack to head of the stack.
+It won't do anything if the stack is empty or only has one element*/
 void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*current;
@@ -64,6 +71,7 @@ void	reverse_rotate(t_stack **stack)
 		prev->next = NULL;
 }
 
+/*This function checks that a stack is sorted correctly*/
 int	is_sorted(t_stack *stack)
 {
 	t_stack	*current;

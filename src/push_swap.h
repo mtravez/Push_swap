@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:56:41 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 19:40:55 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 13:17:42 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
+/*@param number The number of this element
+@param index The index of where in the order this element should be
+@param next The next element in the stack*/
 typedef struct s_stack
 {
 	int				number;
@@ -25,6 +28,12 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+/*@param a The main stack where every number will be
+@param b The secondary stack used in the sorting algorithms
+@param instructions A linked list where the instructions for the sorting 
+are stored.
+@param n The number of bits of the largest number in the stack
+@param size The amount of total numbers to be sorted*/
 typedef struct s_holder
 {
 	t_stack	*a;
@@ -44,7 +53,6 @@ void		push_stack(t_stack **from, t_stack **to);
 void		rotate(t_stack **stack);
 void		reverse_rotate(t_stack **stack);
 int			is_sorted(t_stack *stack);
-int			get_half(int n);
 
 void		swap(t_stack **stack);
 void		push_stack(t_stack **from, t_stack **to);
@@ -72,7 +80,5 @@ void		sb(t_holder *holder);
 void		rra(t_holder *holder);
 void		rrb(t_holder *holder);
 t_holder	*init_holder(char **numbers);
-
-void		printlist(t_stack *list);
 
 #endif

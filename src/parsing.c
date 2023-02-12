@@ -6,13 +6,15 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:42:27 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/10 15:02:28 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 12:53:03 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	has_doubles(t_holder *holder)
+/*This function checks the stack A for duplicates and returns 
+0 if it doesn't*/
+static int	has_doubles(t_holder *holder)
 {
 	t_stack	*temp;
 	t_stack	*compare;
@@ -32,7 +34,10 @@ int	has_doubles(t_holder *holder)
 	return (0);
 }
 
-int	is_valid(char *str)
+/*This function checks if the argument given by the user
+is valid. It checks if it is a number and if it contains more than
+one '-' character*/
+static int	is_valid(char *str)
 {
 	int	i;
 
@@ -48,6 +53,9 @@ int	is_valid(char *str)
 	return (1);
 }
 
+/*This function fills a stack with the contents of a string array.
+It will check for doubles, if each element is a valid number and if
+it doesn't exceed the integer limits.*/
 int	put_stack(char **numbers, t_holder *holder)
 {
 	int	i;

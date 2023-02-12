@@ -6,12 +6,13 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:00:45 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/04 20:24:17 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/11 21:22:55 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*This function frees a two dimentional array*/
 void	free_array(char **array)
 {
 	int	i;
@@ -25,6 +26,7 @@ void	free_array(char **array)
 	free(array);
 }
 
+/*This function frees a stack*/
 void	free_stack(t_stack *stack)
 {
 	t_stack	*temp;
@@ -38,6 +40,7 @@ void	free_stack(t_stack *stack)
 	}
 }
 
+/*This function frees a list*/
 void	free_list(t_list *head)
 {
 	t_list	*temp;
@@ -52,6 +55,7 @@ void	free_list(t_list *head)
 	}
 }
 
+/*This function frees a holder*/
 void	free_holder(t_holder *holder)
 {
 	free_stack(holder->a);
