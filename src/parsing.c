@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:42:27 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 12:53:03 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 18:05:00 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ int	put_stack(char **numbers, t_holder *holder)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (numbers[i])
 		if (!is_valid(numbers[i++]))
 			return (0);
-	holder->size = i - 1;
+	holder->size = i;
 	i--;
-	while (i >= 1)
+	while (i >= 0)
 	{
 		push(ft_atoi(numbers[i]), 0, &holder->a);
 		if ((holder->a->number < 0 && numbers[i][0] != '-') || \

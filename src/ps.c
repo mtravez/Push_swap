@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:04:23 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 13:37:45 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 18:07:50 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	reverse_rotate(t_stack **stack)
 	t_stack	*prev;
 
 	current = *stack;
-	if (!current)
+	if (!current || !current->next)
 		return ;
 	while (current->next)
 	{
@@ -67,8 +67,7 @@ void	reverse_rotate(t_stack **stack)
 	}
 	current->next = *stack;
 	*stack = current;
-	if (prev)
-		prev->next = NULL;
+	prev->next = NULL;
 }
 
 /*This function checks that a stack is sorted correctly*/

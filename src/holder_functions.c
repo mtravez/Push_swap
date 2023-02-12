@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:42:59 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/11 21:28:15 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 17:56:56 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_holder	*init_holder(char **numbers)
 	* 2 + sizeof(t_list *) * 2);
 	newh->a = NULL;
 	newh->b = NULL;
+	newh->instructions = NULL;
 	if (!put_stack(numbers, newh))
 	{
 		free_holder(newh);
@@ -69,7 +70,6 @@ t_holder	*init_holder(char **numbers)
 		bits++;
 	}
 	newh->n = bits - 1;
-	newh->instructions = NULL;
 	put_index(newh);
 	return (newh);
 }
