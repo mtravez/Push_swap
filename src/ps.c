@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:04:23 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 12:57:03 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 13:37:45 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	is_sorted(t_stack *stack)
 	if (!current)
 		return (0);
 	index = current->index;
-	while (current->next)
+	while (current)
 	{
 		if (index != current->index)
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:27:04 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 13:23:25 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 13:30:06 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	}
 	if (!read_commands(holder))
 		return (0);
-	if (is_sorted(holder))
+	if (is_sorted(holder->a) && !holder->b)
 		ft_printf("OK");
 	else
 		ft_printf("KO");
