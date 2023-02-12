@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:27:04 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 18:10:14 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/12 18:30:07 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	read_commands(t_holder *holder)
 		{
 			ft_printf("Error\n");
 			free_holder(holder);
+			free(line);
 			return (0);
 		}
 		free(line);
