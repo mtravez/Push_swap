@@ -9,7 +9,7 @@ BONUS_SRC = bonus/instructions.c bonus/checker.c bonus/double_function.c
 
 LIBFT = libft/libft.a
 
-FLAGS=-Wall -Wextra -Werror -g -fsanitize=address
+FLAGS=-Wall -Wextra -Werror
 
 OBJ = $(SRC:%.c=%.o)
 

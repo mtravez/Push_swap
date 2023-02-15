@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:00:45 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 17:51:13 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:24:41 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ void	free_holder(t_holder *holder)
 	free_stack(holder->b);
 	free_list(holder->instructions);
 	free(holder);
+}
+
+int	throw_error(char *message)
+{
+	ft_printf(message);
+	return (0);
 }

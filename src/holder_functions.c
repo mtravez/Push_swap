@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:42:59 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/12 17:56:56 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:42:53 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,12 @@ correctly in stack A and assigning every number its index.*/
 t_holder	*init_holder(char **numbers)
 {
 	t_holder	*newh;
-	int			bits;
 	int			max;
 
 	newh = malloc(sizeof(t_holder *) + sizeof(t_stack) \
 	* 2 + sizeof(t_list *) * 2);
+	if (!newh)
+		return (NULL);
 	newh->a = NULL;
 	newh->b = NULL;
 	newh->instructions = NULL;
@@ -62,14 +63,13 @@ t_holder	*init_holder(char **numbers)
 		free_holder(newh);
 		return (NULL);
 	}
-	max = newh->size;
-	bits = 0;
+	max = newh->size - 1;
+	newh->n = -1;
 	while (max)
 	{
 		max >>= 1;
-		bits++;
+		newh->n++;
 	}
-	newh->n = bits - 1;
 	put_index(newh);
 	return (newh);
 }
