@@ -37,7 +37,7 @@ re: fclean all
 
 bonus: $(BONUS)
 
-$(BONUS): $(LIBFT) $(OBJ_BONUS)
+$(BONUS): $(NAME) $(OBJ_BONUS)
 	@cc $(BONUS_SRC) $(LIBFT) $(FLAGS) src/ps.c src/stack_functions.c src/parsing.c src/free_stuff.c \
 	src/holder_functions.c src/index_set.c -o $(BONUS)
 

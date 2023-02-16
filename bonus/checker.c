@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:27:04 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/15 13:16:54 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:38:10 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ int	main(int argc, char **argv)
 		arguments = ft_split(argv[1], ' ');
 	holder = init_holder(arguments);
 	if (!holder)
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
+		return (throw_error());
 	if (!read_commands(holder))
 		return (0);
 	if (is_sorted(holder->a) && !holder->b)

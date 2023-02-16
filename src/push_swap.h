@@ -6,7 +6,7 @@
 /*   By: mtravez <mtravez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:56:41 by mtravez           #+#    #+#             */
-/*   Updated: 2023/02/15 12:23:36 by mtravez          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:19:42 by mtravez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		free_stack(t_stack *stack);
 void		free_holder(t_holder *holder);
 void		free_array(char **array);
 void		free_list(t_list *head);
-int			throw_error(char *message);
+int			throw_error(void);
 
 void		sort(t_holder *holder);
 void		sort_short(t_holder *holder);
